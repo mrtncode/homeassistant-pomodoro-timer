@@ -1,4 +1,5 @@
 """Pomodoro sensors."""
+
 from __future__ import annotations
 
 from datetime import datetime
@@ -56,7 +57,9 @@ class EndSensor(_PomodoroSensor):
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: PomodoroConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant,
+    entry: PomodoroConfigEntry,
+    async_add_entities: AddEntitiesCallback,
 ) -> None:
     timer = entry.runtime_data
     async_add_entities([PhaseSensor(timer), EndSensor(timer)])

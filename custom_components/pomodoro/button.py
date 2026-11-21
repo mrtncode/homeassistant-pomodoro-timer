@@ -1,4 +1,5 @@
 """Pomodoro buttons."""
+
 from __future__ import annotations
 
 from homeassistant.components.button import ButtonEntity
@@ -21,7 +22,9 @@ class PomodoroButton(PomodoroEntity, ButtonEntity):
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: PomodoroConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant,
+    entry: PomodoroConfigEntry,
+    async_add_entities: AddEntitiesCallback,
 ) -> None:
     timer = entry.runtime_data
     async_add_entities(
