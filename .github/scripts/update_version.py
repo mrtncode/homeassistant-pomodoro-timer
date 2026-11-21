@@ -1,5 +1,3 @@
-# noqa: INP001
-
 """Update manifest version."""
 
 import json
