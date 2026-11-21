@@ -1,7 +1,6 @@
 {
   "domain": "pomodoro",
   "name": "Pomodoro",
-  "description": "A Pomodoro Timer for Home Assistant",
   "codeowners": [],
   "config_flow": true,
   "dependencies": [],
