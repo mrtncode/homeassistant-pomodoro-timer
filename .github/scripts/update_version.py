@@ -12,9 +12,7 @@ def update_manifest() -> None:
         if value in ["--version", "-V"] and index + 1 < len(sys.argv):
             version = sys.argv[index + 1]
 
-    manifest_path = (
-        Path.cwd() / "custom_components" / "pomodoro" / "manifest.json"
-    )
+    manifest_path = Path.cwd() / "custom_components" / "pomodoro" / "manifest.json"
 
     with manifest_path.open() as manifestfile:
         manifest = json.load(manifestfile)
