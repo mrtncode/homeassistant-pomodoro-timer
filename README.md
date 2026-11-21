@@ -9,6 +9,8 @@ A simple Pomodoro timer you can control from Home Assistant. Set your focus and 
 - Configurable focus sessions, short breaks, long breaks, and focus sessions per cycle
 - Start, pause, resume, skip to the next phase, and reset controls
 - Sensors for the current phase and its expected end time
+- A sensor showing minutes remaining until the next phase
+- A Home Assistant event entity for phase changes
 - A `pomodoro_phase_changed` event for automations
 - English and German translations
 
@@ -47,6 +49,8 @@ Each configured timer provides these entities (with entity IDs based on its name
 | --- | --- |
 | Phase sensor | Current phase: `idle`, `focus`, `short_break`, or `long_break`. Attributes include status and completed focus cycles. |
 | Ends at sensor | Expected end time of the current phase; empty while idle or paused. |
+| Remaining minutes sensor | Minutes remaining until the next phase; empty while idle and held at the remaining value while paused. |
+| Phase changed event | Emits a `phase_changed` event with the timer's name, entry ID, previous phase, and new phase. |
 | Start / pause button | Starts a focus session, pauses a running timer, or resumes a paused timer. |
 | Next phase button | Skips to the next phase. |
 | Reset button | Stops the timer and clears the cycle count. |

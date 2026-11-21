@@ -38,6 +38,9 @@
       },
       "end": {
         "name": "Endet um"
+      },
+      "remaining_minutes": {
+        "name": "Verbleibende Minuten bis zur nächsten Phase"
       }
     },
     "button": {
@@ -49,6 +52,14 @@
       },
       "reset": {
         "name": "Zurücksetzen"
+      }
+    },
+    "event": {
+      "phase_changed": {
+        "name": "Phasenwechsel",
+        "event_type": {
+          "phase_changed": "Phase gewechselt"
+        }
       }
     }
   }

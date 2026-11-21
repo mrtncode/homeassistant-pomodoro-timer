@@ -2,13 +2,19 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Any
 
-from homeassistant.components.sensor import SensorDeviceClass, SensorEntity
+from homeassistant.components.sensor import (
+    SensorDeviceClass,
+    SensorEntity,
+    SensorStateClass,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.event import async_track_time_interval
+from homeassistant.util import dt as dt_util
 
 from . import PomodoroConfigEntry
 from .const import PHASES
@@ -56,10 +62,43 @@ class EndSensor(_PomodoroSensor):
         return self.timer.end
 
 
+class RemainingMinutesSensor(_PomodoroSensor):
+    _attr_native_unit_of_measurement = "min"
+    _attr_state_class = SensorStateClass.MEASUREMENT
+
+    def __init__(self, timer) -> None:
+        super().__init__(timer, "remaining_minutes")
+
+    @property
+    def native_value(self) -> float | None:
+        if self.timer.status == "paused":
+            remaining = self.timer.paused_remaining
+        elif self.timer.end is not None:
+            remaining = self.timer.end - dt_util.utcnow()
+        else:
+            return None
+
+        if remaining is None:
+            return None
+        return round(max(remaining.total_seconds(), 0) / 60, 2)
+
+    async def async_added_to_hass(self) -> None:
+        await super().async_added_to_hass()
+        self.async_on_remove(
+            async_track_time_interval(
+                self.hass,
+                lambda _now: self.async_write_ha_state(),
+                timedelta(seconds=1),
+            )
+        )
+
+
 async def async_setup_entry(
     hass: HomeAssistant,
     entry: PomodoroConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     timer = entry.runtime_data
-    async_add_entities([PhaseSensor(timer), EndSensor(timer)])
+    async_add_entities(
+        [PhaseSensor(timer), EndSensor(timer), RemainingMinutesSensor(timer)]
+    )
