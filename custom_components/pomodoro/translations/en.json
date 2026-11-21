@@ -1,0 +1,55 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pomodoro",
+        "data": {
+          "name": "Name",
+          "focus_minutes": "Focus (min)",
+          "short_break_minutes": "Short break (min)",
+          "long_break_minutes": "Long break (min)",
+          "cycles_before_long_break": "Focus sessions before long break"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "focus_minutes": "Focus (min)",
+          "short_break_minutes": "Short break (min)",
+          "long_break_minutes": "Long break (min)",
+          "cycles_before_long_break": "Focus sessions before long break"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "phase": {
+        "name": "Phase",
+        "state": {
+          "idle": "Idle",
+          "focus": "Focus",
+          "short_break": "Short break",
+          "long_break": "Long break"
+        }
+      },
+      "end": {
+        "name": "Ends at"
+      }
+    },
+    "button": {
+      "toggle": {
+        "name": "Start / pause"
+      },
+      "skip": {
+        "name": "Next phase"
+      },
+      "reset": {
+        "name": "Reset"
+      }
+    }
+  }
+}
