@@ -13,7 +13,7 @@ def update_manifest() -> None:
             version = sys.argv[index + 1]
 
     manifest_path = (
-        Path.cwd() / "custom_components" / "fritzbox_voicemail" / "manifest.json"
+        Path.cwd() / "custom_components" / "pomodoro" / "manifest.json"
     )
 
     with manifest_path.open() as manifestfile:
