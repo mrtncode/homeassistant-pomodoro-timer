@@ -1,0 +1,14 @@
+{
+  "domain": "pomodoro",
+  "name": "Pomodoro",
+  "description": "A Pomodoro Timer for Home Assistant",
+  "codeowners": [],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/mrtncode/homeassistant-pomodoro-timer",
+  "integration_type": "service",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/mrtncode/homeassistant-pomodoro-timer/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
