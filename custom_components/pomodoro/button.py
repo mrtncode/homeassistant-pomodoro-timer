@@ -9,7 +9,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from . import PomodoroConfigEntry
 from .entity import PomodoroEntity
 
-BUTTONS = {"toggle": "toggle", "skip": "advance", "reset": "reset"}
+BUTTONS = {"skip": "advance", "reset": "reset"}
 
 
 class PomodoroButton(PomodoroEntity, ButtonEntity):

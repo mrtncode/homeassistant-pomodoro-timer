@@ -44,14 +44,16 @@
       }
     },
     "button": {
-      "toggle": {
-        "name": "Start / Pause"
-      },
       "skip": {
         "name": "Nächste Phase"
       },
       "reset": {
         "name": "Zurücksetzen"
+      }
+    },
+    "switch": {
+      "timer": {
+        "name": "Timer"
       }
     },
     "event": {

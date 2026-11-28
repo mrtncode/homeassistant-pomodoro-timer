@@ -8,7 +8,7 @@ from homeassistant.core import HomeAssistant
 
 from .timer import PomodoroTimer
 
-PLATFORMS = [Platform.SENSOR, Platform.BUTTON, Platform.EVENT]
+PLATFORMS = [Platform.SENSOR, Platform.SWITCH, Platform.BUTTON, Platform.EVENT]
 
 type PomodoroConfigEntry = ConfigEntry[PomodoroTimer]
 
