@@ -58,10 +58,7 @@
     },
     "event": {
       "phase_changed": {
-        "name": "Phasenwechsel",
-        "event_type": {
-          "phase_changed": "Phasenwechsel"
-        }
+        "name": "Phasenwechsel"
       }
     }
   }
