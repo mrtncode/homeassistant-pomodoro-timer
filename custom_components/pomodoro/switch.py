@@ -33,7 +33,9 @@ class PomodoroSwitch(PomodoroEntity, SwitchEntity):
     async def async_added_to_hass(self) -> None:
         await super().async_added_to_hass()
         self.async_on_remove(
-            async_dispatcher_connect(self.hass, self.timer.signal, self.async_write_ha_state)
+            async_dispatcher_connect(
+                self.hass, self.timer.signal, self.async_write_ha_state
+            )
         )
 
 
